@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aman Studio — Handmade Terracotta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body> 
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <span class="logo-mark"></span>
+      Aman Studio
+    </a>
+    <ul class="nav-links">
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartOpenBtn" aria-label="Open cart">
+        🛒 Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wheel" aria-hidden="true">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="98" fill="none" stroke="#3D2218" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#C1572D" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="60" fill="none" stroke="#3D2218" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="40" fill="none" stroke="#C1572D" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="20" fill="none" stroke="#3D2218" stroke-width="0.6"/>
+      <g stroke="#8B3A1F" stroke-width="0.5">
+        <line x1="100" y1="2" x2="100" y2="198"/>
+        <line x1="2" y1="100" x2="198" y2="100"/>
+        <line x1="29" y1="29" x2="171" y2="171"/>
+        <line x1="171" y1="29" x2="29" y2="171"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow hero-eyebrow">Handmade in Bishnupur, West Bengal</p>
+      <h1>Earth, <em>shaped</em><br>by hand & fire.</h1>
+      <p>Every piece at Aman Studio is thrown, etched, and kiln-fired by hand — one potter, one wheel, one pot at a time. No two pieces are identical, and that's the point.</p>
+      <div class="hero-cta">
+        <a href="#shop" class="btn btn-primary">Browse the collection ↓</a>
+        <a href="#story" class="btn btn-ghost">Meet the studio</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="num">14</span><span class="label">YEARS THROWING CLAY</span></div>
+        <div><span class="num">3,200+</span><span class="label">PIECES FIRED</span></div>
+        <div><span class="num">0</span><span class="label">MOULDS USED</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=900&q=80" alt="Handmade terracotta pots on a wooden shelf">
+      <div class="hero-tag"><span class="dot"></span> Currently drying: Monsoon collection</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true">
+  <div class="strip-track" id="marqueeTrack"></div>
+</div>
+
+<section class="section" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;">The Collection</p>
+        <h2>Pieces, not products</h2>
+      </div>
+      <p>Each listing is a single fired batch. When a piece sells out, it doesn't come back the same way twice.</p>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="shelf" id="shelf"></div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="story-img">
+      <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=700&q=80" alt="Potter shaping terracotta on a wheel">
+    </div>
+    <div>
+      <p class="eyebrow" style="color:var(--brass); margin-bottom:14px;">Our Story</p>
+      <h2>Three generations at the same wheel</h2>
+      <p>Aman Studio began in a one-room workshop where Aman's grandfather taught the family trade — turning riverbed clay into kalash pots for weddings and diyas for Diwali. The wheel still spins in the same courtyard.</p>
+      <p>Today we work with a small collective of artisan families across Bishnupur, keeping the same hand-building and pit-firing techniques alive, just reaching further than the village market now does.</p>
+      <p>No two pieces leave our kiln looking the same — the iron in the clay, the ash in the fire, and the hand of the maker all leave their mark.</p>
+      <div class="story-signoff">
+        <div>
+          <div class="name">Aman Kumar</div>
+          <div class="role">Founder & Master Potter</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;">How It's Made</p>
+        <h2>From riverbank to your shelf</h2>
+      </div>
+    </div>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <p class="stage">Dig & Knead</p>
+      <h3>Sourcing the clay</h3>
+      <p>Clay is hand-dug from local riverbeds, sun-dried, soaked, and kneaded to remove air and stones.</p>
+    </div>
+    <div class="process-step">
+      <p class="stage">Throw & Shape</p>
+      <h3>The wheel</h3>
+      <p>Each form is thrown by hand on a manual kick-wheel — no moulds, so every piece has its own quiet variation.</p>
+    </div>
+    <div class="process-step">
+      <p class="stage">Carve & Dry</p>
+      <h3>Etching & detailing</h3>
+      <p>Motifs are carved while the clay is leather-hard, then left to air-dry slowly for up to a week.</p>
+    </div>
+    <div class="process-step">
+      <p class="stage">Fire & Finish</p>
+      <h3>The kiln</h3>
+      <p>Pieces are pit-fired at low heat for that signature warm, unglazed terracotta tone.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;">From Our Customers</p>
+        <h2 style="color:var(--char);">Carried home, carefully</h2>
+      </div>
+    </div>
+    <div class="t-grid">
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p>"The cooling pot keeps water naturally cool without a fridge — exactly like my grandmother's. The packaging alone showed how much care went in."</p>
+        <div class="who">— Priya N., Pune</div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p>"You can actually see the hand-marks on the wall planter. It doesn't look factory-made, and that's exactly why I bought it."</p>
+        <div class="who">— Rohan D., Bengaluru</div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p>"Ordered the diya set before Diwali — arrived well before time and each one had a slightly different glaze pattern. Beautiful."</p>
+        <div class="who">— Meera S., Jaipur</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="margin-bottom:10px;">Get in Touch</p>
+      <h2>Custom orders & questions</h2>
+      <p>Want a custom dinner set, a bulk wedding order, or just have a question about care and firing? Write to us — a real person from the studio replies, usually within a day.</p>
+      <div class="info-row"><span class="ic">✉</span> hello@amanstudio.in</div>
+      <div class="info-row"><span class="ic">☎</span> +91 98765 43210</div>
+      <div class="info-row"><span class="ic">⌂</span> Bishnupur, West Bengal, India</div>
+    </div>
+    <form id="contactForm">
+      <div class="field">
+        <label for="cf-name">Name</label>
+        <input id="cf-name" type="text" required placeholder="Your full name">
+      </div>
+      <div class="field">
+        <label for="cf-email">Email</label>
+        <input id="cf-email" type="email" required placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="cf-msg">Message</label>
+        <textarea id="cf-msg" required placeholder="Tell us what you're looking for..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send message</button>
+      <p class="form-msg" id="formMsg"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <a href="#top" class="foot-logo"><span class="logo-mark"></span> Aman Studio</a>
+      <p style="font-size:0.9rem; max-width:34ch; color:rgba(251,244,232,0.65);">Handmade terracotta from Bishnupur, West Bengal — thrown, carved, and pit-fired by a small family collective since 2012.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#shop">All pieces</a></li>
+        <li><a href="#shop">Home & Decor</a></li>
+        <li><a href="#shop">Kitchen & Dining</a></li>
+        <li><a href="#shop">Festive</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="#story">Our story</a></li>
+        <li><a href="#process">Our process</a></li>
+        <li><a href="#contact">Custom orders</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#contact">Shipping & care</a></li>
+        <li><a href="#contact">Returns</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Aman Studio. All pieces handmade in India.</span>
+    <span>Fired with care, not mass-produced.</span>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h3>Your Cart</h3>
+    <button class="close-x" id="closeDrawer" aria-label="Close cart">×</button>
+  </div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot" id="drawerFoot"></div>
+</aside>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal" id="checkoutModal"></div>
+</div>
+
+<div class="toast" id="toast"><span class="dot"></span><span id="toastMsg"></span></div>
+
+<script src="js/products.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

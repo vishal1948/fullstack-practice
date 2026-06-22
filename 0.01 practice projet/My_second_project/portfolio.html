@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+        }
+
+        header img {
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        section {
+            padding: 2rem;
+            margin: 1rem auto;
+            max-width: 800px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #2575fc;
+            border-bottom: 2px solid #6a11cb;
+            padding-bottom: 0.5rem;
+        }
+
+        .project {
+            margin-bottom: 1.5rem;
+        }
+
+        .project img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0.5rem 0;
+        }
+
+        ul li a {
+            color: #2575fc;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form input[type="submit"] {
+            background: #2575fc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background: #6a11cb;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://via.placeholder.com/150" alt="John Doe's Profile Picture" width="150">
+        <h1>John Doe</h1>
+        <p>Aspiring Web Developer | Showcasing My Projects and Skills</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm John Doe, a passionate web developer with a knack for creating beautiful and functional websites. I enjoy solving problems and learning new technologies to improve my craft.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="project">
+            <h3>Weather App</h3>
+            <img src="https://via.placeholder.com/300x200" alt="Screenshot of Weather App">
+            <p>A web application that provides real-time weather updates for any location. Built using HTML, CSS, and JavaScript.</p>
+            <p><strong>Skills Demonstrated:</strong> JavaScript, API Integration, Responsive Design</p>
+        </div>
+
+        <div class="project">
+            <h3>Portfolio Website</h3>
+            <img src="https://via.placeholder.com/300x200" alt="Screenshot of Portfolio Website">
+            <p>A personal portfolio website to showcase my projects and skills. Designed with a focus on simplicity and elegance.</p>
+            <p><strong>Skills Demonstrated:</strong> HTML, CSS, Web Design</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>React.js</li>
+            <li>Responsive Web Design</li>
+            <li>API Integration</li>
+            <li>Problem-Solving</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br>
+
+            <input type="submit" value="Send Message">
+        </form>
+
+        <p>Or reach me on:</p>
+        <ul>
+            <li><a href="https://linkedin.com/in/johndoe">LinkedIn</a></li>
+            <li><a href="https://github.com/johndoe">GitHub</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 John Doe. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

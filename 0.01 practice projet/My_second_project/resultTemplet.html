@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .marksheet {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: justify;
+        }
+        th {
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .btn {
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="marksheet">
+        <h1>MARKS SHEET</h1>
+        <h1>Academic Year: 2024-25</h1>
+        <hr>
+        <h3>Name: Salunkhe Sakshi Sopan</h3>
+        <h3>PRN: 2024011031131</h3>
+        <h3>Seat No: 197</h3>
+        <h3>Program: B.Tech CSE</h3>
+        <h3>Mother Name: Sunanda</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Title</th>
+                    <th>FET(20)</th>
+                    <th>FET(10)</th>
+                    <th>MSE(30)</th>
+                    <th>MSE(15)</th>
+                    <th>ESE(50)</th>
+                    <th>ESE(25)</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="marksTable">
+                <!-- Marks will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <div class="result" id="result">
+            <!-- Total and Average will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Subject-wise marks with corrected course names
+        const marks = {
+            "Applied Mathematics I": { FET20: 10, FET10: 5, MSE30: 20, MSE15: 10, ESE50: 40, ESE25: 20 },
+            "Basic Programming With C": { FET20: 15, FET10: 8, MSE30: 25, MSE15: 12, ESE50: 45, ESE25: 22 },
+            "Fundamental of Web Development": { FET20: 18, FET10: 9, MSE30: 28, MSE15: 14, ESE50: 48, ESE25: 24 },
+            "Basic Programming With C Lab": { FET20: 12, FET10: 6, MSE30: 22, MSE15: 11, ESE50: 42, ESE25: 21 },
+            "Fundamental of Web Development Lab": { FET20: 20, FET10: 10, MSE30: 30, MSE15: 15, ESE50: 50, ESE25: 25 },
+            "Engineering Chemistry": { FET20: 14, FET10: 7, MSE30: 24, MSE15: 13, ESE50: 44, ESE25: 23 },
+            "Operating System": { FET20: 16, FET10: 8, MSE30: 26, MSE15: 14, ESE50: 46, ESE25: 24 },
+            "Fundamental of Electronic Engineering": { FET20: 17, FET10: 9, MSE30: 27, MSE15: 14, ESE50: 47, ESE25: 25 },
+            "Environment Science": { FET20: 19, FET10: 10, MSE30: 29, MSE15: 15, ESE50: 49, ESE25: 25 },
+            "Fundamental of Electronic Engineering Lab": { FET20: 13, FET10: 6, MSE30: 23, MSE15: 12, ESE50: 43, ESE25: 22 },
+            "Engineering Chemistry Lab": { FET20: 11, FET10: 5, MSE30: 21, MSE15: 10, ESE50: 41, ESE25: 20 },
+            "Yoga": { FET20: 20, FET10: 10, MSE30: 30, MSE15: 15, ESE50: 50, ESE25: 25 }
+        };
+
+        // Function to generate the marksheet
+        function generateMarksheet() {
+            let totalMarks = 0;
+            let subjectCount = 0;
+
+            // Dynamically add rows to the table
+            const marksTable = document.getElementById('marksTable');
+            marksTable.innerHTML = ''; // Clear the table before regenerating
+            for (const subject in marks) {
+                const subjectMarks = marks[subject];
+                const subjectTotal = Object.values(subjectMarks).reduce((a, b) => a + b, 0);
+                totalMarks += subjectTotal;
+                subjectCount++;
+
+                const row = `<tr>
+                                <td>${subject}</td>
+                                <td>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'FET20', -1)">-</button>
+                                    <span>${subjectMarks.FET20}</span>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'FET20', 1)">+</button>
+                                </td>
+                                <td>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'FET10', -1)">-</button>
+                                    <span>${subjectMarks.FET10}</span>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'FET10', 1)">+</button>
+                                </td>
+                                <td>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'MSE30', -1)">-</button>
+                                    <span>${subjectMarks.MSE30}</span>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'MSE30', 1)">+</button>
+                                </td>
+                                <td>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'MSE15', -1)">-</button>
+                                    <span>${subjectMarks.MSE15}</span>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'MSE15', 1)">+</button>
+                                </td>
+                                <td>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'ESE50', -1)">-</button>
+                                    <span>${subjectMarks.ESE50}</span>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'ESE50', 1)">+</button>
+                                </td>
+                                <td>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'ESE25', -1)">-</button>
+                                    <span>${subjectMarks.ESE25}</span>
+                                    <button class="btn" onclick="updateMarks('${subject}', 'ESE25', 1)">+</button>
+                                </td>
+                                <td>${subjectTotal}</td>
+                             </tr>`;
+                marksTable.innerHTML += row;
+            }
+
+            // Calculate average
+            const average = totalMarks / subjectCount;
+
+            // Display total and average
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <p><strong>Total Marks:</strong> ${totalMarks}</p>
+                <p><strong>Average Marks:</strong> ${average.toFixed(2)}</p>
+            `;
+        }
+
+        // Function to update marks dynamically
+        function updateMarks(subject, column, change) {
+            marks[subject][column] += change;
+            if (marks[subject][column] < 0) marks[subject][column] = 0; // Prevent negative marks
+            generateMarksheet(); // Regenerate the marksheet
+        }
+
+        // Initial call to generate the marksheet
+        generateMarksheet();
+    </script>
+</body>
+</html>

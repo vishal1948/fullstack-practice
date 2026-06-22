@@ -1,0 +1,22 @@
+/* Smimple grouping */
+h1, h2 {
+    color: blueviolet;
+}
+/* decendent selector */
+.box > p {
+    color: firebrick;
+}
+/* grand decendent selector */
+.box li {
+    color: blue;
+}
+
+/* chaining elemnnts */
+li.done {
+    color: seagreen;
+}
+
+/* combine combiner */
+ul p.done {
+    font-size: 0.5rem;
+}

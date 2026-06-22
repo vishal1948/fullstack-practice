@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolhapur</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Kolhapur city</h1>
+        <div class="button-container">
+            <a href="Home.html" class="button">Home</a>
+            <a href="Talim.html" class="button">Talims</a>
+            <a href="about.html" class="button">About Us</a>
+            <a href="feedback.html" class="button">Feedback</a>
+        </div>
+        
+        <!-- Image Slider -->
+        <div class="slider">
+            <div class="slides">
+                <img src="01.jpg" alt="Image 1">
+                <img src="02.jpg" alt="Image 2">
+                <img src="03.jpg" alt="Image 3">
+                <img src="04.jpg" alt="Image 4">
+                <img src="05.jpg" alt="Image 5">
+            </div>
+        </div>
+
+        <!-- About Kolhapur Section -->
+        <div class="info-section">
+            <h2>About Kolhapur</h2>
+            <p>
+                Kolhapur is a historic city in Maharashtra, India, known for its rich cultural heritage, 
+                temples, and traditional Kolhapuri footwear. The city is situated on the banks of the Panchganga River 
+                and is home to the famous Mahalakshmi Temple, a significant pilgrimage site.
+            </p>
+            <p>
+                Kolhapur is also renowned for its spicy cuisine, including the famous Kolhapuri Misal and Tambada Rassa. 
+                The city has a vibrant history and is a hub for art, culture, and tourism.
+            </p>
+        </div>
+
+        <!-- Football Culture Section -->
+        <div class="info-section">
+            <h2>Football Culture in Kolhapur</h2>
+            <p>
+                Kolhapur is not only known for its rich cultural heritage but also for its vibrant football culture. 
+                The city has a long-standing tradition of hosting football tournaments, attracting teams and fans from across the region.
+            </p>
+            <p>
+                Local football clubs and academies play a significant role in nurturing young talent. The passion for football 
+                is evident during major tournaments, where stadiums are filled with enthusiastic supporters cheering for their favorite teams.
+            </p>
+            <p>
+                One of the most notable aspects of Kolhapur's football culture is the intense rivalry between local teams. 
+                Matches between these teams are highly anticipated events, often drawing large crowds and creating an electrifying atmosphere.
+            </p>
+            <p>
+                The city's commitment to football has also led to the development of better infrastructure, including modern stadiums 
+                and training facilities, ensuring that Kolhapur remains a hub for football enthusiasts.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2025 Kolhapur City. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.whatsapp.com" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+
+            // Reset index if it exceeds the total slides
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else {
+                currentIndex = index;
+            }
+
+            // Move the slides container
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function autoSlide() {
+            currentIndex++;
+            showSlide(currentIndex);
+        }
+
+        // Auto-slide every 3 seconds
+        setInterval(autoSlide, 3000);
+    </script>
+</body>
+</html>

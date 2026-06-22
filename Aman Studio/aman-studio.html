@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aman Studio — Handmade Terracotta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --char:#3D2218;
+    --clay-dust:#FBF4E8;
+    --terracotta:#C1572D;
+    --sienna:#8B3A1F;
+    --brass:#D4A24C;
+    --leaf:#6B7A52;
+    --paper:#FFFDF8;
+    --line: rgba(61,34,24,0.14);
+    --shadow: 0 18px 40px -22px rgba(61,34,24,0.35);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--clay-dust);
+    color:var(--char);
+    font-family:'Karla', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  button{font-family:inherit; cursor:pointer; border:none; background:none;}
+  ::selection{background:var(--terracotta); color:var(--clay-dust);}
+
+  h1,h2,h3,.display{
+    font-family:'Rozha One', serif;
+    font-weight:400;
+    letter-spacing:0.01em;
+    line-height:1.08;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--sienna);
+  }
+  .mono{font-family:'JetBrains Mono', monospace;}
+
+  :focus-visible{
+    outline:2px solid var(--terracotta);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,244,232,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Rozha One', serif;
+    font-size:1.3rem;
+  }
+  .logo-mark{
+    width:30px; height:30px; border-radius:50%;
+    border:2px solid var(--char);
+    position:relative;
+    flex-shrink:0;
+  }
+  .logo-mark::before{
+    content:"";
+    position:absolute; inset:5px;
+    border:1.5px solid var(--terracotta);
+    border-radius:50%;
+  }
+  .nav-links{
+    display:flex; gap:32px; align-items:center;
+    font-size:0.92rem;
+    list-style:none;
+  }
+  .nav-links a{
+    text-decoration:none;
+    position:relative;
+    padding:4px 0;
+  }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:0;
+    width:0; height:1.5px; background:var(--terracotta);
+    transition:width 0.25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-right{display:flex; align-items:center; gap:20px;}
+  .cart-btn{
+    display:flex; align-items:center; gap:8px;
+    font-size:0.85rem;
+    font-family:'JetBrains Mono', monospace;
+    border:1.5px solid var(--char);
+    padding:8px 14px;
+    border-radius:30px;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .cart-btn:hover{background:var(--char); color:var(--clay-dust);}
+  .cart-count{
+    background:var(--terracotta); color:var(--clay-dust);
+    border-radius:50%;
+    width:20px; height:20px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.7rem;
+  }
+  .menu-toggle{display:none; font-size:1.5rem;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 28px 80px;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:1.1fr 0.9fr;
+    gap:40px; align-items:center;
+  }
+  .wheel{
+    position:absolute;
+    top:50%; right:-120px; transform:translateY(-50%);
+    width:560px; height:560px;
+    pointer-events:none;
+    opacity:0.16;
+  }
+  .wheel svg{width:100%; height:100%; animation:spin 38s linear infinite;}
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  .hero-eyebrow{margin-bottom:18px;}
+  .hero h1{
+    font-size:clamp(2.6rem, 5.4vw, 4.4rem);
+    margin-bottom:22px;
+    max-width:11ch;
+  }
+  .hero h1 em{
+    font-style:normal; color:var(--terracotta);
+  }
+  .hero p{
+    font-size:1.08rem;
+    max-width:42ch;
+    color:rgba(61,34,24,0.78);
+    margin-bottom:34px;
+  }
+  .hero-cta{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 28px;
+    border-radius:40px;
+    font-size:0.95rem;
+    font-weight:600;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary{
+    background:var(--terracotta); color:var(--paper);
+    box-shadow:var(--shadow);
+  }
+  .btn-primary:hover{background:var(--sienna); transform:translateY(-2px);}
+  .btn-ghost{
+    border:1.5px solid var(--char);
+    color:var(--char);
+  }
+  .btn-ghost:hover{background:var(--char); color:var(--clay-dust);}
+
+  .hero-stats{
+    display:flex; gap:36px; margin-top:48px;
+    padding-top:28px; border-top:1px solid var(--line);
+    max-width:42ch;
+  }
+  .hero-stats div span{display:block;}
+  .hero-stats .num{font-family:'Rozha One',serif; font-size:1.8rem; color:var(--sienna);}
+  .hero-stats .label{font-size:0.78rem; color:rgba(61,34,24,0.65); font-family:'JetBrains Mono',monospace;}
+
+  .hero-visual{
+    position:relative;
+    aspect-ratio:4/5;
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .hero-visual img{width:100%; height:100%; object-fit:cover;}
+  .hero-tag{
+    position:absolute; bottom:18px; left:18px;
+    background:var(--paper);
+    padding:10px 16px;
+    border-radius:30px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.74rem;
+    display:flex; align-items:center; gap:8px;
+    box-shadow:0 10px 24px -10px rgba(0,0,0,0.3);
+  }
+  .hero-tag .dot{width:7px; height:7px; border-radius:50%; background:var(--leaf);}
+
+  /* ---------- MARQUEE STRIP ---------- */
+  .strip{
+    background:var(--char);
+    color:var(--clay-dust);
+    padding:13px 0;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .strip-track{
+    display:inline-flex;
+    animation:marquee 26s linear infinite;
+  }
+  .strip-track span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    padding:0 28px;
+    display:inline-flex; align-items:center; gap:28px;
+  }
+  .strip-track span::after{content:"◆"; color:var(--brass); font-size:0.6rem;}
+  @keyframes marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:90px 28px;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    margin-bottom:48px; flex-wrap:wrap; gap:18px;
+  }
+  .section-head h2{font-size:clamp(1.9rem, 3.4vw, 2.6rem);}
+  .section-head p{color:rgba(61,34,24,0.7); max-width:38ch; font-size:0.96rem;}
+
+  /* ---------- CATEGORY PILLS ---------- */
+  .filters{
+    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px;
+  }
+  .filter-pill{
+    padding:9px 18px;
+    border:1.5px solid var(--line);
+    border-radius:30px;
+    font-size:0.85rem;
+    font-family:'JetBrains Mono', monospace;
+    transition:all 0.2s ease;
+    background:var(--paper);
+  }
+  .filter-pill:hover{border-color:var(--char);}
+  .filter-pill.active{
+    background:var(--char); color:var(--clay-dust); border-color:var(--char);
+  }
+
+  /* ---------- PRODUCT GRID ---------- */
+  .shelf{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(252px, 1fr));
+    gap:30px 26px;
+  }
+  .product{
+    background:var(--paper);
+    border-radius:4px;
+    overflow:hidden;
+    position:relative;
+    border-bottom:3px solid var(--char);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .product:hover{transform:translateY(-5px); box-shadow:var(--shadow);}
+  .product-img{
+    aspect-ratio:1/1;
+    overflow:hidden;
+    position:relative;
+    background:#eee2cd;
+  }
+  .product-img img{width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;}
+  .product:hover .product-img img{transform:scale(1.06);}
+  .seal{
+    position:absolute; top:12px; left:12px;
+    width:54px; height:54px;
+    border-radius:50%;
+    background:var(--paper);
+    border:1.5px dashed var(--sienna);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.56rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--sienna);
+    line-height:1.15;
+    transform:rotate(-8deg);
+  }
+  .product-body{padding:18px 18px 20px;}
+  .product-cat{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--leaf);
+    margin-bottom:6px;
+    display:block;
+  }
+  .product h3{font-size:1.18rem; font-weight:400; margin-bottom:8px;}
+  .product-foot{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-top:14px;
+  }
+  .price{font-family:'JetBrains Mono', monospace; font-size:1rem; font-weight:500;}
+  .price .strike{
+    text-decoration:line-through; color:rgba(61,34,24,0.4);
+    font-size:0.82rem; margin-right:6px;
+  }
+  .add-btn{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1.5px solid var(--char);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.2rem;
+    transition:all 0.2s ease;
+    flex-shrink:0;
+  }
+  .add-btn:hover{background:var(--terracotta); border-color:var(--terracotta); color:var(--paper); transform:rotate(90deg);}
+  .add-btn.added{background:var(--leaf); border-color:var(--leaf); color:var(--paper); transform:none;}
+
+  /* ---------- STORY / ABOUT ---------- */
+  .story{
+    background:var(--char); color:var(--clay-dust);
+  }
+  .story .wrap{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:center;
+  }
+  .story-img{
+    border-radius:4px; overflow:hidden; box-shadow:0 24px 60px -20px rgba(0,0,0,0.6);
+    aspect-ratio:3/4;
+  }
+  .story-img img{width:100%; height:100%; object-fit:cover;}
+  .story h2{color:var(--brass); font-size:clamp(1.9rem,3.2vw,2.7rem); margin-bottom:22px;}
+  .story p{color:rgba(251,244,232,0.82); margin-bottom:18px; font-size:1.02rem; max-width:54ch;}
+  .story-signoff{
+    margin-top:28px; padding-top:24px; border-top:1px solid rgba(251,244,232,0.2);
+    display:flex; align-items:center; gap:14px;
+  }
+  .story-signoff .name{font-family:'Rozha One', serif; font-size:1.1rem; color:var(--brass);}
+  .story-signoff .role{font-family:'JetBrains Mono', monospace; font-size:0.74rem; color:rgba(251,244,232,0.6);}
+
+  /* ---------- PROCESS ---------- */
+  .process-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:0;
+    border-top:1px solid var(--line); border-left:1px solid var(--line);
+  }
+  .process-step{
+    padding:32px 26px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .process-step .stage{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem; color:var(--sienna); letter-spacing:0.1em;
+    margin-bottom:14px; text-transform:uppercase;
+  }
+  .process-step h3{font-size:1.15rem; margin-bottom:10px; font-weight:400;}
+  .process-step p{font-size:0.9rem; color:rgba(61,34,24,0.72);}
+
+  /* ---------- TESTIMONIAL ---------- */
+  .testimonials{background:var(--brass); }
+  .t-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  }
+  .t-card{
+    background:var(--clay-dust);
+    padding:30px 26px;
+    border-radius:4px;
+  }
+  .t-card p{font-size:1.02rem; margin-bottom:18px; line-height:1.55;}
+  .t-card .who{font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--sienna);}
+  .stars{color:var(--terracotta); letter-spacing:2px; margin-bottom:14px;}
+
+  /* ---------- NEWSLETTER / CONTACT ---------- */
+  .contact{
+    background:var(--paper);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .contact .wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:60px;
+  }
+  .contact h2{font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:16px;}
+  .contact p{color:rgba(61,34,24,0.72); margin-bottom:28px; max-width:42ch;}
+  .info-row{display:flex; gap:14px; margin-bottom:18px; font-size:0.95rem;}
+  .info-row .ic{color:var(--terracotta); font-family:'JetBrains Mono',monospace;}
+  form{display:flex; flex-direction:column; gap:14px;}
+  .field{display:flex; flex-direction:column; gap:6px;}
+  label{font-family:'JetBrains Mono', monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--sienna);}
+  input, textarea{
+    border:1.5px solid var(--line);
+    background:var(--clay-dust);
+    padding:13px 14px;
+    border-radius:4px;
+    font-family:'Karla', sans-serif;
+    font-size:0.95rem;
+    color:var(--char);
+  }
+  input:focus, textarea:focus{border-color:var(--terracotta); outline:none;}
+  textarea{resize:vertical; min-height:90px;}
+  .form-msg{font-size:0.85rem; color:var(--leaf); font-family:'JetBrains Mono',monospace; min-height:18px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--char); color:rgba(251,244,232,0.7); padding:56px 28px 28px;}
+  .foot-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px;
+    padding-bottom:36px; border-bottom:1px solid rgba(251,244,232,0.14);
+  }
+  .foot-logo{display:flex; align-items:center; gap:10px; color:var(--clay-dust); margin-bottom:14px;}
+  .foot-logo .logo-mark{border-color:var(--clay-dust);}
+  .foot-logo .logo-mark::before{border-color:var(--brass);}
+  footer h4{font-family:'JetBrains Mono', monospace; font-size:0.74rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--brass); margin-bottom:16px;}
+  footer ul{list-style:none; display:flex; flex-direction:column; gap:10px; font-size:0.9rem;}
+  footer ul a{text-decoration:none; transition:color 0.2s;}
+  footer ul a:hover{color:var(--clay-dust);}
+  .foot-bottom{
+    display:flex; justify-content:space-between; padding-top:24px;
+    font-size:0.8rem; font-family:'JetBrains Mono', monospace;
+    flex-wrap:wrap; gap:10px;
+  }
+
+  /* ---------- CART DRAWER ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(61,34,24,0.45);
+    opacity:0; pointer-events:none; transition:opacity 0.3s ease;
+    z-index:90;
+  }
+  .overlay.open{opacity:1; pointer-events:auto;}
+  .drawer{
+    position:fixed; top:0; right:0; height:100%;
+    width:420px; max-width:92vw;
+    background:var(--paper);
+    z-index:91;
+    transform:translateX(100%);
+    transition:transform 0.35s cubic-bezier(.4,0,.2,1);
+    display:flex; flex-direction:column;
+    box-shadow:-20px 0 50px -20px rgba(0,0,0,0.4);
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{
+    padding:24px 24px 18px; border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .drawer-head h3{font-size:1.4rem; font-weight:400;}
+  .close-x{font-size:1.6rem; line-height:1; color:var(--char);}
+  .drawer-items{flex:1; overflow-y:auto; padding:18px 24px;}
+  .cart-item{
+    display:grid; grid-template-columns:64px 1fr auto; gap:14px;
+    padding:16px 0; border-bottom:1px solid var(--line);
+    align-items:center;
+  }
+  .cart-item img{width:64px; height:64px; object-fit:cover; border-radius:4px;}
+  .cart-item h4{font-size:0.95rem; font-weight:600; margin-bottom:4px;}
+  .cart-item .price-sm{font-family:'JetBrains Mono',monospace; font-size:0.85rem; color:var(--sienna);}
+  .qty-row{display:flex; align-items:center; gap:10px; margin-top:8px;}
+  .qty-btn{
+    width:24px; height:24px; border:1px solid var(--line); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:0.9rem;
+  }
+  .qty-btn:hover{border-color:var(--char);}
+  .remove-btn{font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--sienna); text-decoration:underline; justify-self:end;}
+  .empty-cart{text-align:center; padding:60px 20px; color:rgba(61,34,24,0.55);}
+  .empty-cart .em-icon{font-size:2.4rem; margin-bottom:14px;}
+  .drawer-foot{
+    padding:22px 24px 26px; border-top:1px solid var(--line);
+  }
+  .sum-row{display:flex; justify-content:space-between; font-size:0.92rem; margin-bottom:8px; color:rgba(61,34,24,0.7);}
+  .sum-row.total{font-size:1.15rem; color:var(--char); font-weight:700; margin-top:12px; padding-top:12px; border-top:1px solid var(--line);}
+  .checkout-btn{width:100%; justify-content:center; margin-top:16px;}
+
+  /* checkout modal */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(61,34,24,0.55);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none; transition:opacity 0.3s ease; z-index:99; padding:20px;
+  }
+  .modal-overlay.open{opacity:1; pointer-events:auto;}
+  .modal{
+    background:var(--paper); border-radius:6px; max-width:460px; width:100%;
+    padding:36px 32px; max-height:88vh; overflow-y:auto;
+    transform:translateY(14px); transition:transform 0.3s ease;
+  }
+  .modal-overlay.open .modal{transform:translateY(0);}
+  .modal h3{font-size:1.6rem; margin-bottom:6px;}
+  .modal .sub{color:rgba(61,34,24,0.65); font-size:0.9rem; margin-bottom:24px;}
+  .modal .success{text-align:center; padding:20px 0;}
+  .modal .success .seal-big{
+    width:74px; height:74px; border-radius:50%; border:2px dashed var(--leaf);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 20px;
+    font-size:1.8rem; color:var(--leaf);
+  }
+
+  /* ---------- TOAST ---------- */
+  .toast{
+    position:fixed; bottom:26px; left:50%; transform:translate(-50%, 20px);
+    background:var(--char); color:var(--clay-dust);
+    padding:14px 22px; border-radius:30px;
+    font-family:'JetBrains Mono', monospace; font-size:0.82rem;
+    display:flex; align-items:center; gap:10px;
+    opacity:0; pointer-events:none; transition:all 0.3s ease;
+    z-index:120;
+  }
+  .toast.show{opacity:1; transform:translate(-50%, 0);}
+  .toast .dot{width:7px; height:7px; border-radius:50%; background:var(--terracotta);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 880px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-visual{order:-1; max-width:420px; margin:0 auto;}
+    .hero-stats{flex-wrap:wrap; gap:24px;}
+    .story .wrap{grid-template-columns:1fr; gap:36px;}
+    .story-img{max-width:340px; margin:0 auto;}
+    .process-grid{grid-template-columns:repeat(2,1fr);}
+    .t-grid{grid-template-columns:1fr;}
+    .contact .wrap{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr; gap:30px;}
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+  }
+  @media (max-width: 540px){
+    .hero{padding:64px 20px 56px;}
+    .section{padding:64px 20px;}
+    .process-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .wheel{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <span class="logo-mark"></span>
+      Aman Studio
+    </a>
+    <ul class="nav-links">
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartOpenBtn" aria-label="Open cart">
+        🛒 Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wheel" aria-hidden="true">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="98" fill="none" stroke="#3D2218" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#C1572D" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="60" fill="none" stroke="#3D2218" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="40" fill="none" stroke="#C1572D" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="20" fill="none" stroke="#3D2218" stroke-width="0.6"/>
+      <g stroke="#8B3A1F" stroke-width="0.5">
+        <line x1="100" y1="2" x2="100" y2="198"/>
+        <line x1="2" y1="100" x2="198" y2="100"/>
+        <line x1="29" y1="29" x2="171" y2="171"/>
+        <line x1="171" y1="29" x2="29" y2="171"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow hero-eyebrow">Handmade in Jolhapur, Maharashtra</p>
+      <h1>Earth, <em>shaped</em><br>by hand & fire.</h1>
+      <p>Every piece at Aman Studio is thrown, etched, and kiln-fired by hand — one potter, one wheel, one pot at a time. No two pieces are identical, and that's the point.</p>
+      <div class="hero-cta">
+        <a href="#shop" class="btn btn-primary">Browse the collection ↓</a>
+        <a href="#story" class="btn btn-ghost">Meet the studio</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="num">14</span><span class="label">YEARS THROWING CLAY</span></div>
+        <div><span class="num">3,200+</span><span class="label">PIECES FIRED</span></div>
+        <div><span class="num">0</span><span class="label">MOULDS USED</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=900&q=80" alt="Handmade terracotta pots on a wooden shelf">
+      <div class="hero-tag"><span class="dot"></span> Currently drying: Monsoon collection</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true">
+  <div class="strip-track" id="marqueeTrack"></div>
+</div>
+
+<section class="section" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;">The Collection</p>
+        <h2>Pieces, not products</h2>
+      </div>
+      <p>Each listing is a single fired batch. When a piece sells out, it doesn't come back the same way twice.</p>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="shelf" id="shelf"></div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="story-img">
+      <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=700&q=80" alt="Potter shaping terracotta on a wheel">
+    </div>
+    <div>
+      <p class="eyebrow" style="color:var(--brass); margin-bottom:14px;">Our Story</p>
+      <h2>Three generations at the same wheel</h2>
+      <p>Aman Studio began in a one-room workshop where Aman's grandfather taught the family trade — turning riverbed clay into kalash pots for weddings and diyas for Diwali. The wheel still spins in the same courtyard.</p>
+      <p>Today we work with a small collective of artisan families across Bishnupur, keeping the same hand-building and pit-firing techniques alive, just reaching further than the village market now does.</p>
+      <p>No two pieces leave our kiln looking the same — the iron in the clay, the ash in the fire, and the hand of the maker all leave their mark.</p>
+      <div class="story-signoff">
+        <div>
+          <div class="name">Aman Kumar</div>
+          <div class="role">Founder & Master Potter</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;">How It's Made</p>
+        <h2>From riverbank to your shelf</h2>
+      </div>
+    </div>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <p class="stage">Dig & Knead</p>
+      <h3>Sourcing the clay</h3>
+      <p>Clay is hand-dug from local riverbeds, sun-dried, soaked, and kneaded to remove air and stones.</p>
+    </div>
+    <div class="process-step">
+      <p class="stage">Throw & Shape</p>
+      <h3>The wheel</h3>
+      <p>Each form is thrown by hand on a manual kick-wheel — no moulds, so every piece has its own quiet variation.</p>
+    </div>
+    <div class="process-step">
+      <p class="stage">Carve & Dry</p>
+      <h3>Etching & detailing</h3>
+      <p>Motifs are carved while the clay is leather-hard, then left to air-dry slowly for up to a week.</p>
+    </div>
+    <div class="process-step">
+      <p class="stage">Fire & Finish</p>
+      <h3>The kiln</h3>
+      <p>Pieces are pit-fired at low heat for that signature warm, unglazed terracotta tone.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;">From Our Customers</p>
+        <h2 style="color:var(--char);">Carried home, carefully</h2>
+      </div>
+    </div>
+    <div class="t-grid">
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p>"The cooling pot keeps water naturally cool without a fridge — exactly like my grandmother's. The packaging alone showed how much care went in."</p>
+        <div class="who">— Priya N., Pune</div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p>"You can actually see the hand-marks on the wall planter. It doesn't look factory-made, and that's exactly why I bought it."</p>
+        <div class="who">— Rohan D., Bengaluru</div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p>"Ordered the diya set before Diwali — arrived well before time and each one had a slightly different glaze pattern. Beautiful."</p>
+        <div class="who">— Meera S., Jaipur</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="margin-bottom:10px;">Get in Touch</p>
+      <h2>Custom orders & questions</h2>
+      <p>Want a custom dinner set, a bulk wedding order, or just have a question about care and firing? Write to us — a real person from the studio replies, usually within a day.</p>
+      <div class="info-row"><span class="ic">✉</span> hello@amanstudio.in</div>
+      <div class="info-row"><span class="ic">☎</span> +91 98765 43210</div>
+      <div class="info-row"><span class="ic">⌂</span> Bishnupur, West Bengal, India</div>
+    </div>
+    <form id="contactForm">
+      <div class="field">
+        <label for="cf-name">Name</label>
+        <input id="cf-name" type="text" required placeholder="Your full name">
+      </div>
+      <div class="field">
+        <label for="cf-email">Email</label>
+        <input id="cf-email" type="email" required placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="cf-msg">Message</label>
+        <textarea id="cf-msg" required placeholder="Tell us what you're looking for..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send message</button>
+      <p class="form-msg" id="formMsg"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <a href="#top" class="foot-logo"><span class="logo-mark"></span> Aman Studio</a>
+      <p style="font-size:0.9rem; max-width:34ch; color:rgba(251,244,232,0.65);">Handmade terracotta from Bishnupur, West Bengal — thrown, carved, and pit-fired by a small family collective since 2012.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#shop">All pieces</a></li>
+        <li><a href="#shop">Home & Decor</a></li>
+        <li><a href="#shop">Kitchen & Dining</a></li>
+        <li><a href="#shop">Festive</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="#story">Our story</a></li>
+        <li><a href="#process">Our process</a></li>
+        <li><a href="#contact">Custom orders</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#contact">Shipping & care</a></li>
+        <li><a href="#contact">Returns</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Aman Studio. All pieces handmade in India.</span>
+    <span>Fired with care, not mass-produced.</span>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h3>Your Cart</h3>
+    <button class="close-x" id="closeDrawer" aria-label="Close cart">×</button>
+  </div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot" id="drawerFoot"></div>
+</aside>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal" id="checkoutModal"></div>
+</div>
+
+<div class="toast" id="toast"><span class="dot"></span><span id="toastMsg"></span></div>
+
+<script>
+/* ---------------- PRODUCT DATA ---------------- */
+const PRODUCTS = [
+  {id:'p1', name:'Hand-thrown Water Matka', cat:'Kitchen & Dining', price:1450, mrp:1800, img:'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600&q=80', seal:'Best Seller'},
+  {id:'p2', name:'Carved Terracotta Wall Plate', cat:'Home & Decor', price:1100, mrp:null, img:'https://images.unsplash.com/photo-1610701596061-cf3a8c620a9c?w=600&q=80', seal:'Handmade'},
+  {id:'p3', name:'Diya Set of 11', cat:'Festive', price:399, mrp:499, img:'https://images.unsplash.com/photo-1604423043492-7d3b3bdaa68a?w=600&q=80', seal:'Festive Pick'},
+  {id:'p4', name:'Terracotta Cooling Bottle 1L', cat:'Kitchen & Dining', price:899, mrp:null, img:'https://images.unsplash.com/photo-1609205807107-e8ec2120f9de?w=600&q=80', seal:'Handmade'},
+  {id:'p5', name:'Bankura Horse — Medium', cat:'Home & Decor', price:1650, mrp:null, img:'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600&q=80', seal:'Heritage Craft'},
+  {id:'p6', name:'Hanging Wall Planter Pair', cat:'Home & Decor', price:799, mrp:999, img:'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&q=80', seal:'Limited'},
+  {id:'p7', name:'Kulhad Tea Cup Set (6)', cat:'Kitchen & Dining', price:549, mrp:null, img:'https://images.unsplash.com/photo-1610701596061-cf3a8c620a9c?w=600&q=80', seal:'Handmade'},
+  {id:'p8', name:'Etched Kalash Pot', cat:'Festive', price:1250, mrp:null, img:'https://images.unsplash.com/photo-1605883705077-8d3d3cfe6a99?w=600&q=80', seal:'Heritage Craft'},
+  {id:'p9', name:'Tabletop Oil Diya Lamp', cat:'Festive', price:650, mrp:799, img:'https://images.unsplash.com/photo-1604423043492-7d3b3bdaa68a?w=600&q=80', seal:'Festive Pick'},
+];
+const CATEGORIES = ['All', 'Home & Decor', 'Kitchen & Dining', 'Festive'];
+
+/* ---------------- STATE ---------------- */
+let cart = {}; // id -> qty
+let activeFilter = 'All';
+
+/* ---------------- RENDER: FILTERS ---------------- */
+const filtersEl = document.getElementById('filters');
+function renderFilters(){
+  filtersEl.innerHTML = CATEGORIES.map(c =>
+    `<button class="filter-pill ${c===activeFilter?'active':''}" data-cat="${c}">${c}</button>`
+  ).join('');
+  filtersEl.querySelectorAll('.filter-pill').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      activeFilter = btn.dataset.cat;
+      renderFilters();
+      renderShelf();
+    });
+  });
+}
+
+/* ---------------- RENDER: SHELF ---------------- */
+const shelfEl = document.getElementById('shelf');
+function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
+
+function renderShelf(){
+  const list = activeFilter==='All' ? PRODUCTS : PRODUCTS.filter(p=>p.cat===activeFilter);
+  shelfEl.innerHTML = list.map(p => `
+    <div class="product" data-id="${p.id}">
+      <div class="product-img">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        <div class="seal">${p.seal}</div>
+      </div>
+      <div class="product-body">
+        <span class="product-cat">${p.cat}</span>
+        <h3>${p.name}</h3>
+        <div class="product-foot">
+          <div class="price">${p.mrp ? `<span class="strike">${fmt(p.mrp)}</span>`:''}${fmt(p.price)}</div>
+          <button class="add-btn" data-id="${p.id}" aria-label="Add ${p.name} to cart">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  shelfEl.querySelectorAll('.add-btn').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      addToCart(btn.dataset.id);
+      btn.classList.add('added');
+      btn.textContent = '✓';
+      setTimeout(()=>{ btn.classList.remove('added'); btn.textContent='+'; }, 900);
+    });
+  });
+}
+
+/* ---------------- MARQUEE ---------------- */
+const marqueeItems = ['Free shipping over ₹1499','Hand-thrown, never moulded','Pit-fired in Bishnupur','Ships across India','Each piece one-of-a-kind'];
+document.getElementById('marqueeTrack').innerHTML =
+  (marqueeItems.concat(marqueeItems)).map(t=>`<span>${t}</span>`).join('');
+
+/* ---------------- CART LOGIC ---------------- */
+function addToCart(id){
+  cart[id] = (cart[id]||0) + 1;
+  updateCartUI();
+  showToast(`${PRODUCTS.find(p=>p.id===id).name} added to cart`);
+}
+function changeQty(id, delta){
+  if(!cart[id]) return;
+  cart[id] += delta;
+  if(cart[id] <= 0) delete cart[id];
+  updateCartUI();
+}
+function removeFromCart(id){
+  delete cart[id];
+  updateCartUI();
+}
+function cartCount(){
+  return Object.values(cart).reduce((a,b)=>a+b,0);
+}
+function cartTotal(){
+  return Object.entries(cart).reduce((sum,[id,qty])=>{
+    const p = PRODUCTS.find(p=>p.id===id);
+    return sum + p.price*qty;
+  },0);
+}
+
+const drawerItems = document.getElementById('drawerItems');
+const drawerFoot = document.getElementById('drawerFoot');
+const cartCountEl = document.getElementById('cartCount');
+
+function updateCartUI(){
+  cartCountEl.textContent = cartCount();
+
+  const ids = Object.keys(cart);
+  if(ids.length === 0){
+    drawerItems.innerHTML = `
+      <div class="empty-cart">
+        <div class="em-icon">𓎈</div>
+        <p>Your cart is empty.</p>
+        <p style="font-size:0.85rem; margin-top:6px;">Add a piece from the collection to begin.</p>
+      </div>`;
+    drawerFoot.innerHTML = '';
+    return;
+  }
+
+  drawerItems.innerHTML = ids.map(id=>{
+    const p = PRODUCTS.find(p=>p.id===id);
+    const qty = cart[id];
+    return `
+      <div class="cart-item">
+        <img src="${p.img}" alt="${p.name}">
+        <div>
+          <h4>${p.name}</h4>
+          <div class="price-sm">${fmt(p.price)}</div>
+          <div class="qty-row">
+            <button class="qty-btn" data-act="dec" data-id="${id}">−</button>
+            <span class="mono" style="font-size:0.85rem;">${qty}</span>
+            <button class="qty-btn" data-act="inc" data-id="${id}">+</button>
+          </div>
+        </div>
+        <button class="remove-btn" data-id="${id}">Remove</button>
+      </div>`;
+  }).join('');
+
+  const subtotal = cartTotal();
+  const shipping = subtotal >= 1499 || subtotal === 0 ? 0 : 99;
+  const total = subtotal + shipping;
+
+  drawerFoot.innerHTML = `
+    <div class="sum-row"><span>Subtotal</span><span class="mono">${fmt(subtotal)}</span></div>
+    <div class="sum-row"><span>Shipping</span><span class="mono">${shipping===0?'Free':fmt(shipping)}</span></div>
+    <div class="sum-row total"><span>Total</span><span class="mono">${fmt(total)}</span></div>
+    <button class="btn btn-primary checkout-btn" id="goCheckout">Proceed to checkout →</button>
+  `;
+
+  drawerItems.querySelectorAll('.qty-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> changeQty(btn.dataset.id, btn.dataset.act==='inc'?1:-1));
+  });
+  drawerItems.querySelectorAll('.remove-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> removeFromCart(btn.dataset.id));
+  });
+  document.getElementById('goCheckout').addEventListener('click', openCheckout);
+}
+
+/* ---------------- DRAWER OPEN/CLOSE ---------------- */
+const overlay = document.getElementById('overlay');
+const drawer = document.getElementById('drawer');
+function openDrawer(){ overlay.classList.add('open'); drawer.classList.add('open'); }
+function closeDrawer(){ overlay.classList.remove('open'); drawer.classList.remove('open'); }
+document.getElementById('cartOpenBtn').addEventListener('click', openDrawer);
+document.getElementById('closeDrawer').addEventListener('click', closeDrawer);
+overlay.addEventListener('click', ()=>{ closeDrawer(); closeCheckout(); });
+
+/* ---------------- CHECKOUT MODAL ---------------- */
+const checkoutOverlay = document.getElementById('checkoutOverlay');
+const checkoutModal = document.getElementById('checkoutModal');
+
+function openCheckout(){
+  const subtotal = cartTotal();
+  const shipping = subtotal >= 1499 ? 0 : 99;
+  const total = subtotal + shipping;
+  checkoutModal.innerHTML = `
+    <h3>Checkout</h3>
+    <p class="sub">${cartCount()} item${cartCount()>1?'s':''} · Total ${fmt(total)}</p>
+    <form id="checkoutForm">
+      <div class="field"><label for="co-name">Full name</label><input id="co-name" required placeholder="Your full name"></div>
+      <div class="field"><label for="co-addr">Delivery address</label><textarea id="co-addr" required placeholder="House no, street, city, state, PIN"></textarea></div>
+      <div class="field"><label for="co-phone">Phone</label><input id="co-phone" type="tel" required placeholder="+91 00000 00000"></div>
+      <div class="field"><label for="co-pay">Payment method</label>
+        <select id="co-pay" style="border:1.5px solid var(--line); background:var(--clay-dust); padding:13px 14px; border-radius:4px; font-family:'Karla',sans-serif;">
+          <option>UPI</option>
+          <option>Cash on Delivery</option>
+          <option>Credit / Debit Card</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" style="justify-content:center; margin-top:8px;">Place order — ${fmt(total)}</button>
+    </form>
+  `;
+  drawer.classList.remove('open');
+  checkoutOverlay.classList.add('open');
+
+  document.getElementById('checkoutForm').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const orderNum = 'AS' + Math.floor(10000 + Math.random()*89999);
+    checkoutModal.innerHTML = `
+      <div class="success">
+        <div class="seal-big">✓</div>
+        <h3>Order placed!</h3>
+        <p class="sub">Order #${orderNum} · We'll email a confirmation shortly.</p>
+        <p style="font-size:0.9rem; color:rgba(61,34,24,0.7); margin-bottom:26px;">Your pieces are being wrapped with care and will ship within 3–5 days, straight from the studio in Bishnupur.</p>
+        <button class="btn btn-ghost" id="closeSuccess" style="width:100%; justify-content:center;">Continue browsing</button>
+      </div>
+    `;
+    cart = {};
+    updateCartUI();
+    document.getElementById('closeSuccess').addEventListener('click', closeCheckout);
+  });
+}
+function closeCheckout(){ checkoutOverlay.classList.remove('open'); }
+checkoutOverlay.addEventListener('click', (e)=>{ if(e.target===checkoutOverlay) closeCheckout(); });
+
+/* ---------------- CONTACT FORM ---------------- */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('formMsg').textContent = '✓ Message sent — we\'ll reply within a day.';
+  this.reset();
+});
+
+/* ---------------- TOAST ---------------- */
+let toastTimer;
+function showToast(msg){
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=> toast.classList.remove('show'), 2200);
+}
+
+/* ---------------- INIT ---------------- */
+renderFilters();
+renderShelf();
+updateCartUI();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alaand Island</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .grid-container {
+      display: grid;
+      grid-template-rows: 2fr 0.5fr 0.5fr 0.5fr 2fr;
+      grid-template-columns: 1.5fr 0.5fr 0.5fr 0.5fr 2.5fr;
+      border: 1px solid black;
+      height: 600px;
+      width: 900px;
+    }
+    
+    .blue1 {
+        background-color: blue;
+    }
+
+    .yellow1 {
+        background-color: yellow;
+    }
+
+    .red1 {
+        background-color: red;
+    }
+    .yellow2 {
+        background-color: yellow;
+    }
+    .blue2 {
+        background-color: blue;
+    }
+
+    .yellow3 {
+        grid-column: span 2;
+        background-color: yellow;
+    }
+
+    .red2 {
+        background-color: red;
+    }
+
+    .yellow4 {
+        grid-column: span 2;
+        background-color: yellow;
+    }
+
+    .fullred {
+        grid-column: span 5;
+        background-color: red;
+    }
+
+    .yellow5 {
+        grid-column: span 2;
+        background-color: yellow;
+    }
+
+    .red4 {
+        /* grid-row: span 2; */
+        background-color: red;
+    }
+
+    .yellow6 {
+        grid-column: span 2;
+        background-color: yellow;
+    }
+
+    .blue3 {
+        background-color: blue;
+    }
+
+    .yellow7 {
+        background-color: yellow;
+    }
+
+    .red5 {
+        background-color: red;
+    }
+
+    .yellow8 {
+        background-color: yellow;
+    }
+    
+    .blue4 {
+
+        background-color: blue;
+    }
+
+    
+    body {
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+@media (width <= 480px) {
+  body {
+    display: block;
+    margin: 50px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    /* justify-content: center;
+    align-items: center; */
+  }
+}
+
+
+    </style>
+</head>
+<body>
+   <div class="grid-container">
+        <div class="blue1"></div>
+        <div class="yellow1"></div>
+        <div class="red1"></div>
+        <div class="yellow2"></div>
+        <div class="blue2"></div>
+
+        <div class="yellow3"></div>
+        <div class="red2"></div>
+        <div class="yellow4"></div>
+
+        <div class="red3 fullred"></div>
+
+        <div class="yellow5"></div>
+        <div class="red4"></div>
+        <div class="yellow6"></div>
+
+        <div class="blue3"></div>
+        <div class="yellow7"></div>
+        <div class="red5"></div>
+        <div class="yellow8"></div>
+        <div class="blue4"></div>
+    
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

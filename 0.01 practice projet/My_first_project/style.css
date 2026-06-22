@@ -1,0 +1,101 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ee8a07; /* Simple background color */
+    color: #222; /* Dark color for all text */
+}
+
+.container {
+    width: 80%; /* Smaller container */
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Image Slider Styles */
+.slider {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* Football Culture Section Styles */
+.info-section h2 {
+    margin-top: 30px;
+    color: #111; /* Darker color for headings */
+}
+
+.info-section p {
+    margin: 10px 0;
+    color: #333; /* Darker color for paragraphs */
+    line-height: 1.6;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333; /* Keep the existing dark background */
+    color: #fff; /* White text for contrast */
+    text-align: center;
+    padding: 20px 0; /* Keep the existing padding */
+    font-size: 16px; /* Keep the existing font size */
+    margin-top: auto; /* Ensure footer stays at the bottom */
+}
+
+.footer .social-icons {
+    margin-top: 10px;
+}
+
+.footer .social-icons a {
+    margin: 0 10px;
+    color: #fff; /* White color for icons */
+    font-size: 24px; /* Larger icon size */
+    text-decoration: none;
+}
+
+.footer .social-icons a:hover {
+    color: #007bff; /* Blue color on hover */
+}
