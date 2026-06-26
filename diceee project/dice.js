@@ -1,4 +1,4 @@
-var firstRandomNumber = Math.floor((Math.random() * 6) + 1); 
+var firstRandomNumber = Math.floor((Math.random() * 6) + 1);
 var randomDiceImage = "dice" + firstRandomNumber + ".png";
 var randomImageSource = "images/" + randomDiceImage;
 var image1 = document.querySelectorAll("img")[0];
@@ -12,8 +12,8 @@ image2.setAttribute("src", randomImageSource2);
 
 if (firstRandomNumber > secondRandomNumber) {
     document.querySelector("h1").innerHTML = "🏆 Player 1 Wins!";
-}else if (secondRandomNumber > firstRandomNumber) {
+} else if (secondRandomNumber > firstRandomNumber) {
     document.querySelector("h1").innerHTML = "Player 2 Wins! 🏆";
-}else {
+} else {
     document.querySelector("h1").innerHTML = "Draw! ▄︻デ══━一💥";
 }
