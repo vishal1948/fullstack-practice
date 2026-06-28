@@ -6,6 +6,8 @@ for (var i = 0; i < numberOfButton; i++) {
 
         var buttonInnerHTML = this.innerHTML;
 
+        buttonAnimation(buttonInnerHTML);
+
         switch (buttonInnerHTML) {
             case "w":
                 var tom1 = new Audio("sounds/tom-1.mp3");
@@ -64,5 +66,17 @@ document.addEventListener("keypress", function(event) {
     if (soundMap[keyPressed]) {
         var audio = new Audio(soundMap[keyPressed]);
         audio.play();
+        buttonAnimation(keyPressed);
+
     }
+
 });
+
+function buttonAnimation(currentKey) {
+    var activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    }, 100);
+}
