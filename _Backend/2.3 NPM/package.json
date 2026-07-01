@@ -1,0 +1,17 @@
+{
+  "name": "Learning NPM",
+  "version": "1.0.0",
+  "description": "I am larning about NPM",
+  "license": "ISC",
+  "author": "Vishal Salunkhe",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@fakerjs/superhero": "^1.2.0",
+    "sillyname": "^0.1.0",
+    "superhero": "^2.14.32"
+  }
+}
