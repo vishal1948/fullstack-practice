@@ -1,0 +1,15 @@
+{
+  "name": "3.2-express-server",
+  "version": "1.0.0",
+  "description": "makeing an http requesting server",
+  "license": "ISC",
+  "author": "Master",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "consol.log(\"hello\");"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
